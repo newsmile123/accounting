@@ -6,6 +6,12 @@ import EmployersAdd from '../employers-add/employers-add'
 
 import './app.css'
 
+const data = [
+    {name: "jhon", salary: 300, increase: true},
+    {name: "lol", salary: 3300, increase: false},
+    {name: "kek", salary: 1300, increase: true},
+]
+
 function App() {
     return (
         <div className='app'>
@@ -15,7 +21,7 @@ function App() {
                 <SearchPanel/>
                 <AppFilter/>
             </div>
-            <EmployersList/>
+            <EmployersList data={data} />
             <EmployersAdd/>
 
 
