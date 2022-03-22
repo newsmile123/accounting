@@ -7,9 +7,9 @@ import EmployersAdd from '../employers-add/employers-add'
 import './app.css'
 
 const data = [
-    {name: "jhon", salary: 300, increase: true},
-    {name: "lol", salary: 3300, increase: false},
-    {name: "kek", salary: 1300, increase: true},
+    {name: "jhon", salary: 300, increase: true, id: 1},
+    {name: "lol", salary: 3300, increase: false, id: 2},
+    {name: "kek", salary: 1300, increase: true, id: 3},
 ]
 
 function App() {
