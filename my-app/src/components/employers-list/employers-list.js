@@ -13,9 +13,9 @@ const EmployersList = ({data}) => {
     return (
         <ul className="app-list list-group">
             {elements}
-
         </ul>
     )
 }
 
 export default EmployersList
+

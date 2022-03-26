@@ -3,7 +3,6 @@ import SearchPanel from '../search-panel/search-panel'
 import AppFilter from '../app-filter/app-filter'
 import EmployersList from '../employers-list/employers-list'
 import EmployersAdd from '../employers-add/employers-add'
-
 import './app.css'
 
 const data = [
@@ -23,7 +22,6 @@ function App() {
             </div>
             <EmployersList data={data} />
             <EmployersAdd/>
-
 
         </div>
 
