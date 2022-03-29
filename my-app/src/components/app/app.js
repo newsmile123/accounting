@@ -11,9 +11,9 @@ class App extends React.Component{
         super(props);
         this.state = {
             data : [
-                {name: "jhon", salary: 300, increase: true, id: 1},
-                {name: "lol", salary: 3300, increase: false, id: 2},
-                {name: "kek", salary: 1300, increase: true, id: 3},
+                {name: "jhon", salary: 300, increase: true, like: false, id: 1},
+                {name: "lol", salary: 3300, increase: false,like: false, id: 2},
+                {name: "kek", salary: 1300, increase: true, like: true, id: 3},
             ]
         }
         this.maxId = 4
@@ -33,6 +33,7 @@ class App extends React.Component{
             name,
             salary,
             increase: false,
+            rise: false,
             id: this.maxId++
         }
         console.log('props')
@@ -46,16 +47,44 @@ class App extends React.Component{
     }
 
 
+    onToggleIncrease = (id) => {
+
+        this.setState(({data}) => ({
+            data: data.map(item => {
+                if (item.id === id) {
+                    return {...item, increase: !item.increase}
+                }
+                return item;
+            })
+        }))
+    }
+
+    onToggleRise = (id) => {
+        this.setState(({data}) => ({
+            data: data.map(item => {
+                if (item.id === id) {
+                    return {...item, like: !item.like}
+                }
+                return item;
+            })
+        }))
+    }
+
     render() {
+        const employers = this.state.data.length;
+        const increased = this.state.data.filter(item => item.increase).length;
+
         return (
             <div className='app'>
-                <AppInfo/>
+                <AppInfo employers={employers} increased={increased}/>
     
                 <div className="search-panel">
                     <SearchPanel/>
                     <AppFilter/>
                 </div>
                 <EmployersList 
+                onToggleIncrease={this.onToggleIncrease}
+                onToggleRise={this.onToggleRise}
                     data={this.state.data} 
                     onDelete={this.deleteItem}
                 />
